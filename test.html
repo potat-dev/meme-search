@@ -13,28 +13,50 @@
     crossorigin="anonymous"></script>
 </head>
 
+<!-- РАБОТАЕТ -->
+
 <body>
   <main role="main" class="container">
-    <header class="header">
-      <h1 class="text-center" style="padding: 20px 20px 5px; margin: 0px">Meme Search</h1>
-      <div class="text-center text-muted" style="padding: 5px 20px 20px; margin: 0px">
-        Search results for &laquo;Meme with Cat&raquo;
+    <header class="header" style="padding: 20px">
+      <h1 class="text-center">Meme Search</h1>
+      <div class="text-center text-muted">
+        Search results for &laquo;Memes with Cats&raquo;
       </div>
     </header>
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4" style="padding: 0px 12px">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" style="padding: 0px 12px">
 
-      <div class="col">
-        <div class="card">
-          <img src="https://cataas.com/cat?height=210" class="card-img-top" alt="" />
-          <div class="list-group list-group-flush">
-            <div id="text-1" class="list-group-item collapse">
-              <p class="card-text">
-                Невдупленыш котенок котик кот кошка кошечка черный черная смотрит глазет растерянно растерянный не
-                понимает не вдупляет блесящие глаза глазки человек белая футболка ковёр шрифт лобстер белая подпись
-              </p>
+      <div class="col"> <!-- РАБОТАЕТ -->
+        <div class="card shadow-sm" data-bs-toggle="collapse" href="#text-1" role="button" aria-expanded="false"
+          aria-controls="text-1">
+          <img src="https://picsum.photos/210" class="card-img-top" alt="" />
+          <div class="list-group list-group-flush ">
+            <div id="text-1" class="collapse">
+              <div class="list-group-item border-0">
+                  Невдупленыш котенок котик кот кошка кошечка черный черная смотрит глазет растерянно растерянный не
+                  понимает не вдупляет блесящие глаза глазки человек белая футболка ковёр шрифт лобстер белая подпись
+              </div>
             </div>
-            <a class="list-group-item list-group-item-action list-group-item-success" data-bs-toggle="collapse"
-              href="#text-1" role="button" aria-expanded="false" aria-controls="text-1">
+            <div class="list-group-item list-group-item-action list-group-item-success">
+              Match: 100%
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="card" data-bs-toggle="collapse" href="#text-a" role="button" aria-expanded="false"
+          aria-controls="text-a">
+          <img src="https://picsum.photos/210" class="card-img-top" alt="" />
+          <div class="list-group list-group-flush">
+            <div id="text-a" class="collapse">
+              <div class="list-group-item">
+                <p class="card-text">
+                  Невдупленыш котенок котик кот кошка кошечка черный черная смотрит глазет растерянно растерянный не
+                  понимает не вдупляет блесящие глаза глазки человек белая футболка ковёр шрифт лобстер белая подпись
+                </p>
+              </div>
+            </div>
+            <a class="list-group-item list-group-item-action list-group-item-success">
               Match: 100%
             </a>
           </div>
@@ -43,7 +65,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=200" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/200" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-2" class="list-group-item collapse">
               <p class="card-text">
@@ -63,7 +85,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=205" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/205" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-3" class="list-group-item collapse">
               <p class="card-text">
@@ -88,7 +110,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=220" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/220" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-4" class="list-group-item collapse">
               <p class="card-text">
@@ -108,7 +130,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=195" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/195" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-5" class="list-group-item collapse">
               <p class="card-text">
@@ -128,7 +150,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=222" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/222" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-6" class="list-group-item collapse">
               <p class="card-text">
@@ -146,7 +168,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=190" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/190" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-7" class="list-group-item collapse">
               <p class="card-text">
@@ -164,7 +186,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=188" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/188" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-8" class="list-group-item collapse">
               <p class="card-text">
@@ -182,7 +204,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=202" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/202" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-9" class="list-group-item collapse">
               <p class="card-text">
@@ -200,7 +222,7 @@
 
       <div class="col">
         <div class="card">
-          <img src="https://cataas.com/cat?height=215" class="card-img-top" alt="" />
+          <img src="https://picsum.photos/215" class="card-img-top" alt="" />
           <div class="list-group list-group-flush">
             <div id="text-10" class="list-group-item collapse">
               <p class="card-text">
@@ -220,9 +242,19 @@
   </main>
   <footer class="footer">
     <div class="container" style="padding: 20px">
-      <div class="text-center text-muted">Meme Search • Created with ♡ by Cyber Potato</div>
+      <div class="muted text-center text-muted">
+        Meme Search • Created with ♡ by 
+        <a href="https://github.com/CyberPotat42" class="text-decoration-none link-dark" data-bs-toggle="tooltip" title="Check out my GitHub!">
+          Cyber Potato
+        </a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
 </body>
 
 </html>
