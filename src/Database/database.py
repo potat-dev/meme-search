@@ -10,3 +10,8 @@ class Database:
     data = self.collection.find(projection=['keywords'])
     keywords = {i['_id']: i['keywords'] for i in data}
     return keywords
+
+  def get_images(self):
+    data = self.collection.find(projection=['images'])
+    images = {i['_id']: i['images'] for i in data}
+    return images
