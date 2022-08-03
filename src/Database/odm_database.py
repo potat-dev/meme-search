@@ -2,7 +2,7 @@ from typing import List
 from odmantic import Model
 from motor.motor_asyncio import AsyncIOMotorClient
 from odmantic import AIOEngine
-from settings import settings
+from src.settings import settings
 
 class Post(Model):
   keywords: str
