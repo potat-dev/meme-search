@@ -1,14 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fuzzywuzzy import process, fuzz
-from time import sleep
+from time import time, sleep
 from settings import settings
-from Database.database import Database, Cache
+from Database.database import Database
 
 
 db = Database(settings)
-cache = Cache(db)
-cache.update()
+db.update()
 
 app = FastAPI()
 app.add_middleware(
@@ -21,28 +20,33 @@ app.add_middleware(
 
 
 @app.get("/search")
-async def search(q: str, limit: int = 10, min_score: int = 70, use_delay: bool = False):
-    if use_delay:
-        sleep(5)  # for testing purposes (react loading UI)
+async def search(q: str, limit: int = 10, min_score: int = 70, delay: int = 0):
+    if delay:
+        sleep(delay)  # for testing purposes (react loading UI)
+
+    # measure time
+    start = time()
     results = process.extract(
-        choices=cache.keywords,
+        choices=db.keywords,
         query=q,
         limit=limit,
         scorer=fuzz.partial_ratio
     )  # -> list of tuples (keywords, score, id)
-    results = [
-        {
-            "text": result[0],
-            "score": result[1],
-            "id": str(result[2]),
-            "images": cache.images[result[2]]
-        }
-        for result in results if result[1] >= min_score
-    ]
+    end = time()
+
     return {
         "count": len(results),
+        "time": {"float": end - start, "str": str(round(end - start, 2))},
         "max_score": max(i["score"] for i in results),
-        "results": results
+        "results": [
+            {
+                "text": result[0],
+                "score": result[1],
+                "id": str(result[2]),
+                "images": db.images[result[2]]
+            }
+            for result in results if result[1] >= min_score
+        ]
     }
 
 
@@ -50,21 +54,25 @@ async def search(q: str, limit: int = 10, min_score: int = 70, use_delay: bool =
 async def meme(id: int):
     return {
         "id": id,
-        "keywords": cache.keywords[id],
-        "images": cache.images[id]
+        "keywords": db.keywords[id],
+        "images": db.images[id]
     }
 
 
 @app.get("/stats")
 async def stats():
     return {
-        "count": cache.posts_count,
+        "count": db.posts_count,
     }
 
 
 @app.post("/update")
 async def update():
-    cache.update()
+    # measure time
+    start = time()
+    db.update()
+    end = time()
     return {
-        "count": cache.posts_count,
+        "count": db.posts_count,
+        "time": {"float": end - start, "str": str(round(end - start, 2))},
     }
